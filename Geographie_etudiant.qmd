@@ -1,0 +1,105 @@
+---
+title: "Le Paris de La Comédie humaine"
+author: "Pascal Brissette"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    code-fold: true
+    code-tools: true
+    theme: Yeti
+    reference-location: margin
+    title-block-banner: true
+    self-contained: true
+    standalone: true
+editor: visual
+lang: fr
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false
+---
+
+# I. Qu'est-ce que la géographie littéraire?
+
+À quel point avez-vous prêté attention à la géographie imaginaire du dernier roman que vous avez lu? Quelle fonction jouaient les lieux dans la narration? Ces lieux étaient-ils imaginaires et sans lien avec la réalité? Étaient-ils au contraire référentiels, portant des noms connus de lieux bien réels? Peut-être étaient-ce des lieux historiques qui ont existé autrefois, des villes disparues ou portant aujourd'hui d'autres noms? Peut-être encore ces lieux portaient-ils des noms étranges, inventés, mais leur description rappelaient des villes ou des régions familières? Y avait-il un lien entre le type d'intrigue ou la forme du roman (par exemple: un roman policier), et le type de lieux habités et parcourus par les personnages? Vous est-il déjà arrivé de parcourir un quartier ou une région, et de voir ceux-ci à travers une fiction que vous aviez déjà lue. Peut-être vous êtes-vous dit: «c'est ici que tel personnage a vécu telle émotion.»
+
+La géographie littéraire s'intéresse à ces questions et à bien d'autres. L'expression «géographie littéraire» renvoie à une famille de travaux et de recherches qui s'intéressent aux liens entre la littérature et l'espace.
+
+L'exploration de ces liens peut prendre plusieurs directions.
+
+## La littérature dans l'espace
+
+La première est celle d'une exploration entre la littérature comme activité sociale et culturelle, et les lieux où elle est écrite, publiée, éditée, diffusée, consommée. Par exemple, on peut s'intéresser à la localisation des maisons d'édition ou des lieux de résidence d'écrivains, ou encore des lieux de rassemblement des associations et groupes littéraires dans le temps. On verrai par exemple que si l'activité littéraire au Québec s'est surtout concentrée dans la ville de Québec au XIXe siècle, elle s'est déplacée vers Montréal au XXe siècle (Saint-Jacques). De tels travaux relèvent de l'histoire et de la sociologie de la littérature. Ils s'intéressent à l'activité ou à la vie littéraire, à ses divers acteurs et institutions, dans le temps et dans l'espace.
+
+## L'espace dans la littérature
+
+La deuxième est celle d'une exploration de l'espace <i>dans</i> les œuvres. Certains critiques, Bakhtine ou Moretti, par exemple, s'intéressent à l'espace qui se déploie dans des sous-groupes d'oeuvres, par exemple le roman grec antique, le roman pastoral ou encore le roman sentimental, et des lieux typiques mis en scène et parcourus par les personnages. Moretti s'intéresse par exemple aux romans de Jane Austen et montre qu'ils mettent en scène une partie très restreinte de l'Angleterre, une zone sécuritaire où les jeunes femmes peuvent passer d'un lieu à un autre, dans le contexte d'un marché du mariage. Pour Bakhtine et Moretti, chaque type de roman possède ou affectionne un type d'espace et de lieux. De nombreux travaux ont été menés, dans cette perspective, sur le roman policier et l'espace urbain, ce type de roman se déployant de manière privilégiée dans les dédales de la ville, où il est aisé de se cacher et d'échapper à la police. L'idée de ce type d'approche est de mettre en lien un type d'espace représenté <i>dans</i> le roman et autre chose: le genre ou sous-genre même dont relève ce roman, voire
+
+On peut s'intéresser également aux parcours géographiques de personnages chez un auteur en particulier ou un groupe d'auteurs (d'une même époque, d'un même courant littéraire, comme le romantisme, le réalisme, le naturalisme, etc.), ou aux connotations rattachées par un écrivain aux lieux habités ou parcourus par les personnages. Les lieux peuvent être ouverts (parc, rue, boulevard) ou fermés (maison, salon, commerce), privés ou publics, centraux ou périphériques. Ils peuvent être décrits de l'intérieur, de la manière dont les voit et perçoit les personnages, où l'être par le narrateur, de manière externe.
+
+## L'usage des cartes
+
+On peut faire de la géographie littéraire sans nullement recourir à des cartes géographiques! Dans l'ouvrage issu de sa thèse de doctorat, le géographe Marc Brosseau s'est intéressé aux «romans-géographes», c'est-à-dire à la manière dont les romans construisent, remplissent et habitent les espaces, et à la manière dont ils forment l'oeil humain. La géographie qu'ils créent, qui peut emprunter des fragments à la réalité, ou non, n'a rien d'un traité scientifique, mais le savoir spécial qu'ils possèdent et fournissent sur les lieux humains est très précieux.
+
+La carte peut cependant être un outil d'analyse d'un grand intérêt. Elle peut servir à révéler des motifs, des trajectoires, des régularités ou des aberrations qui n'auraient pas été aussi aisées à saisir sans cet outil. La carte est une autre manière d'observer et de lire des phénomènes sociaux (la distribution géographique des maisons d'édition au Québec au XXIe siècle, par exemple) ou littéraires (le parcours typique des protagonistes du roman de formation au XIXe siècle, par exemple). La carte peut donc être utilisée aussi bien dans la première famille d'études évoquée ci-dessus («la littérature dans l'espace») que dans la deuxième («l'espace dans la littérature»). Selon l'objectif de la recherche, les hypothèses et la méthode, elle peut être, ou non, mobilisée comme outil heuristique et analytique.
+
+Toute carte ne recourt pas aux GIS (Geographic Information System), qui sont une convention et qui ne sont qu'une manière particulière de représenter le monde, de le simplifier et de le comprendre. Dans un cours de géographie littéraire que je donnais il y a quelque temps, une étudiante qui venait de la région disait que la carte qui lui a permis de comprendre la géographie montréalaise était celle du métro de Montréal. Sa géographie montréalaise était inséparable de cette carte. Elle ne pensait pas Montréal en tant que groupe de quartiers ou d'arrondissements; ce n'était pas les grandes artères et autoroutes qui lui permettait de circuler ou de se situer géographiquement; les lignes de métro et les stations étaient ses points de référence. Une telle carte n'obéit nullement aux conventions cartographiques de Google Maps.
+
+Les écrivaines et écrivains utilisent parfois des cartes pour illustrer l'espace ou le monde où se déploient les personnages de leur univers, ou, plus métaphoriquement, pour illustrer le parcours sentimental ou intellectuel que doivent parcourir leurs personnages pour réussir.
+
+![](images/Gallica_Carte_Tendre.jpg) Source: Mlle de Scudéry, «Carte du Tendre», dans <i>Clélie. Histoire romaine</i>. Gallica. <br> <br>
+
+![](images/_89553428_tolkienmap2.png) Source: Tolkiens, Carte de la Terre-du-milieu, annotée par l'auteur de <i>Lord of the Ring</i>. BBC.
+
+## Concepts et défis de la cartographie — Discussion autour du texte de Melanie Conroy
+
+### La méfiance envers la cartographie littéraire
+
+Dans l'introduction de son ouvrage, Melanie Conroy rappelle que la cartographie a souvent été rejetée par les spécialistes de la littérature, même par ceux qui s'intéressent à la géographie littéraire, parce que considérée comme un geste «positiviste». Qu'est-ce qu'elle veut dire par là et quelles raisons les spécialistes peuvent-ils avoir de se méfier de la cartographie?
+
+
+### Le processus cartographique
+
+Conroy décrit un processus qui semble assez simple pour créer une carte littéraire:
+
+1.  Extraire les noms de lieux (toponymes).
+2.  Associer ces noms à des lieux réels via des répertoires (gazetteers).
+3.  Géolocaliser (trouver les coordonnées latitude/longitude).
+4.  Visualiser sur un fond de carte.
+
+Dans les faits, cependant, ce processus n'est pas aussi aisé et suppose des choix de la part du ou de la cartographe.
+
+
+Prenons un exemple simple. La <i>La Comédie humaine</i> s'intéresse beaucoup à Paris. La première étape, celle de l'extraction du mot «Paris» (ou la «capitale») est facile. La deuxième étape est moins aisée. Pourquoi?
+
+La troisième étape, celle de la géolocalisation, peut également poser quelques difficultés. Pourquoi? Conroy discute de cette étape en se référant à la «haussmannisation» de Paris au XIXe siècle.
+
+### Des lieux, mais quels lieux?
+
+Si on procède de manière automatique à l'extraction du mot «Paris» dans la <i>Comédie humaine</i>, nous obtiendrons une grande quantité d'occurrences. Cependant, dans le texte, le mot a-t-il toujours la même valeur et la même signification? Si je m'intéresse aux déplacements des personnages, le mot «Paris» en tant que tel sera plus ou moins pertinent. Pourquoi?
+
+
+Barbara Piatti, qui a dirigé un ambitieux projet d'Atlas du roman européen, s'est beaucoup intéressé à un autre enjeu de la cartographie littéraire. Elle remarque en effet que les lieux littéraires, contrairement à ceux cartographiés scientifiquement, ont rarement des frontières claires. Ce sont souvent davantage des zones aux frontières floues que des lieux aux limites nettes. Elle propose une typologie des lieux en cinq points:
+
+1.  `Setting`: un lieu où l'action prend place, occupé par les personnages;
+2.  `Zone of action`: plusieurs `settings` formant une zone ou une région (ex.: région de Paris);
+3.  `Projected space`: les personnages ne s'y trouvent pas, mais ils s'y réfèrent, s'en souviennent, aspirent à y aller, etc.;
+4.  `Marker`: lieux mentionnés, par exemple par la narration, mais agissant davantage comme un point de repère dans l'espace que comme un lieu investi émotionnellement;
+5.  `Route`: le long desquels les personnages se déplacent (d'un `setting` à un autre).
+
+## Pour aller plus loin
+
+-   Mikhaïl Bakhtine, <i>Esthétique et théorie du roman</i>, traduit du russe par Daria Olivier, Paris, Gallimard, 1978 \[1975\].
+
+-   Rachel Bouvet (éd.), <i>Littérature et géographie</i>, Montréal, Presses de l'Université du Québec, 2018.
+
+-   Marc Brosseau, <i>Les romans-géographes. Essais</i>, Paris, L'Harmattan, coll. «Géographie et cultures», 1996.
+
+-   Michel Collot, <i>Pour une géographie littéraire</i>, Paris, Éditions Corti, coll. «Les essais», 2014.
+
+-   Franco Moretti, <i>Graphes, cartes et arbres. Modèles abstraits pour une autre histoire de la littérature</i>, traduit de l'anglais par Étienne Dobenesque, Paris, Les prairies ordinaires, coll. «Penser/croiser», 2008.
+
+-   Barbara Piatti, Anne-Kathrin Reuschel, Hans Rudolf Bär, William Cartwright et Lorenz Hurni, «Mapping Literature. Towards a Geography of Fiction», dans Cartwright, W. et al. Cartography and Art, Wiesbaden, p. 177-192. <https://www.literaturatlas.eu/files/2012/01/Piatti2008_ArtAndCartography_Springer.pdf>
