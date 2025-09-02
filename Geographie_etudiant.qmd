@@ -60,7 +60,6 @@ Les écrivaines et écrivains utilisent parfois des cartes pour illustrer l'espa
 
 Dans l'introduction de son ouvrage, Melanie Conroy rappelle que la cartographie a souvent été rejetée par les spécialistes de la littérature, même par ceux qui s'intéressent à la géographie littéraire, parce que considérée comme un geste «positiviste». Qu'est-ce qu'elle veut dire par là et quelles raisons les spécialistes peuvent-ils avoir de se méfier de la cartographie?
 
-
 ### Le processus cartographique
 
 Conroy décrit un processus qui semble assez simple pour créer une carte littéraire:
@@ -72,7 +71,6 @@ Conroy décrit un processus qui semble assez simple pour créer une carte litté
 
 Dans les faits, cependant, ce processus n'est pas aussi aisé et suppose des choix de la part du ou de la cartographe.
 
-
 Prenons un exemple simple. La <i>La Comédie humaine</i> s'intéresse beaucoup à Paris. La première étape, celle de l'extraction du mot «Paris» (ou la «capitale») est facile. La deuxième étape est moins aisée. Pourquoi?
 
 La troisième étape, celle de la géolocalisation, peut également poser quelques difficultés. Pourquoi? Conroy discute de cette étape en se référant à la «haussmannisation» de Paris au XIXe siècle.
@@ -80,7 +78,6 @@ La troisième étape, celle de la géolocalisation, peut également poser quelqu
 ### Des lieux, mais quels lieux?
 
 Si on procède de manière automatique à l'extraction du mot «Paris» dans la <i>Comédie humaine</i>, nous obtiendrons une grande quantité d'occurrences. Cependant, dans le texte, le mot a-t-il toujours la même valeur et la même signification? Si je m'intéresse aux déplacements des personnages, le mot «Paris» en tant que tel sera plus ou moins pertinent. Pourquoi?
-
 
 Barbara Piatti, qui a dirigé un ambitieux projet d'Atlas du roman européen, s'est beaucoup intéressé à un autre enjeu de la cartographie littéraire. Elle remarque en effet que les lieux littéraires, contrairement à ceux cartographiés scientifiquement, ont rarement des frontières claires. Ce sont souvent davantage des zones aux frontières floues que des lieux aux limites nettes. Elle propose une typologie des lieux en cinq points:
 
@@ -99,6 +96,8 @@ Barbara Piatti, qui a dirigé un ambitieux projet d'Atlas du roman européen, s'
 -   Marc Brosseau, <i>Les romans-géographes. Essais</i>, Paris, L'Harmattan, coll. «Géographie et cultures», 1996.
 
 -   Michel Collot, <i>Pour une géographie littéraire</i>, Paris, Éditions Corti, coll. «Les essais», 2014.
+
+-   Melanie Conroy, *Literary Geographies in Balzac and Proust*, Cambridge, Cambridge University Press, coll. «Elements in Digital Literary Studies», 2021.
 
 -   Franco Moretti, <i>Graphes, cartes et arbres. Modèles abstraits pour une autre histoire de la littérature</i>, traduit de l'anglais par Étienne Dobenesque, Paris, Les prairies ordinaires, coll. «Penser/croiser», 2008.
 
