@@ -1,0 +1,29 @@
+Page_debut	Page_fin	Type_lieu	Nom_lieu	Type_occupation	Arrondissement	Quartier	Adresse_approx	Latitude	Longitude	Autre_personnage	Autre_nom	Sentiment_Lucien	
+185		chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989	Anais		anticipation	
+191	192	rue	rue de la Paix	promenade	1	Place Vendome	23, rue de la Paix, Paris, France	48.869131	2.331128			anticipation	
+189		appartement	appartement d'Anais, rue Neuve-du-Luxembourg	logement	1	Place Vendome	15, rue Cambon, Paris, France	48.868615	2.327038	Anais	Rue Cambon		
+192	192	restaurant	Au Rocher de Cancale	diner	1	Quartier des Halles	78, rue Montorgueil, Paris, France	48.86502	2.34685	Anais, Chatelet			
+192	193	theatre	Theatre du Vaudeville	spectacle	1		19, Place du Palais-Royal	48.86257	2.3369	Anais, Chatelet	rue de Chartres_Saint_Honore		
+193		chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989	Anais			
+194	195	appartement	appartement d'Anais, rue Neuve-du-Luxembourg	visite	1	Place Vendome	15, rue Cambon, Paris, France	48.868615	2.327038		Rue Cambon		
+195	198	jardin	Tuileries	promenade	1	Quartier Saint_Germain_l'Auxerrois	210,  rue de Rivoli, Paris, France	48.863611	2.326667				
+198	198	restaurant	Chez Very	dejeuner	2	Quartier du Palais-Royal	7, rue des Petits_Champs, Paris, France	48.86630	2.33882				
+198	198	chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989				
+198	199	boutique	boutiques diverses	achat	1	Quartier du Palais-Royal	248, rue Saint_Honore, Paris, France	48.86365	2.33448				
+199	199	chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989				
+199	210	Opera	Opera	spectacle	9		12, rue Le Peletier, Paris, France	48.8728	2.3387	Anais, Chatelet, Rastignac, Marquise d'Espard, de Marsay, de Vandenesse, Général Montriveau, de Canalis			
+210	210	chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989				
+210	210	boutique	Staub	achat	2	Quartier Vivienne	5, rue Vivienne, Paris, France	48.8675	2.3384			excitation	
+210	210	chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989			excitation	
+210	210	boutique	Chez Verdier	achat	1	Quartier Vivienne	15, rue de Richelieu, Paris, France	48.86448	2.33625			excitation	
+210	210	boutique	Chez Mme Irlande	achat	1	Quartier du Palais-Royal	160, rue Saint_Honore, Paris, France	48.86286	2.33698			excitation	
+211	211	appartement	appartement d'Anais, rue Neuve-du-Luxembourg	visite	1	Place Vendome	15, rue Cambon, Paris, France	48.868615	2.327038		Rue Cambon	deception	
+211	211	restaurant	Palais-Royal	diner	1	Quartier du Palais-Royal	160, rue Saint_Honore, Paris, France	48.86286	2.33698			deception	
+211	211	chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989			anticipation	
+211	211	appartement	appartement d'Anais, rue Neuve-du-Luxembourg	visite	1	Place Vendome	15, rue Cambon, Paris, France	48.868615	2.327038		Rue Cambon	deception	
+211	211	chambre	Chambre de Lucien, Hotel du Gaillard-Bois	logement	1	Place Vendome	3, rue de l'Echelle, Paris, France	48.863511	2.333989			anticipation	
+211	211	appartement	appartement d'Anais, rue Neuve-du-Luxembourg	visite	1	Place Vendome	15, rue Cambon, Paris, France	48.868615	2.327038		Rue Cambon	deception	
+211	211	jardin	Tuileries	promenade	1	Quartier Saint_Germain_l'Auxerrois	210,  rue de Rivoli, Paris, France	48.863611	2.326667			deception	
+211	211	avenue	Champs-Elysees	promenade	8	Champs-Elysees		48.8699	2.3076	Anais, Marquise d'Espard, De Marsay		humiliation	
+213	213	restaurant	Chez Hurbain	diner	1	Quartier du Palais-Royal	160, rue Saint_Honore, Paris, France	48.86286	2.33698			colere	« En lançant ces paroles enragées, il dînait chez Hurbain à quarante sous..»
+213	213	appartement	appartement d'Anais, rue Neuve-du-Luxembourg	visite	1	Place Vendome	15, rue Cambon, Paris, France	48.868615	2.327038	Châtelet	Rue Cambon	humiliation	« Le lendemain, à neuf heures, il alla chez Louise dans l'intention de lui reprocher sa barbarie: non seulement Mme de Bargeton n'y était pas pour lui, mias encore le portier ne le laissa pas monter, il resta dans la rue, faisant le guet, jusqu'à midi.»

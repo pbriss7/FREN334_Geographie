@@ -62,9 +62,6 @@ Les écrivaines et écrivains utilisent parfois des cartes pour illustrer l'espa
 
 Dans l'introduction de son ouvrage, Melanie Conroy rappelle que la cartographie a souvent été rejetée par les spécialistes de la littérature. Même ceux qui s'intéressent à la géographie littéraire s'en méfient, car elle est considérée comme un geste «positiviste». Qu'est-ce qu'elle veut dire par là et quelles raisons les spécialistes peuvent-ils avoir de se méfier de la cartographie?
 
-<!-- Opposition entre la mesure scientifique de l'espace et l'interprétation littéraire de l'espace, tenant compte des connotations et du ressenti du lecteur. -->
-
-<!-- La carte n'est pas une simple illustration, mais une interprétation qui implique des choix. Le but de notre discussion est de comprendre la nature de ces choix et leurs conséquences. -->
 
 ### Le processus cartographique
 
@@ -77,51 +74,15 @@ Conroy décrit un processus qui semble assez simple pour créer une carte litté
 
 Dans les faits, cependant, ce processus n'est pas aussi aisé et suppose des choix de la part de la ou du cartographe.
 
-<!-- Pistes de discussion : -->
-
-<!-- Le "Paris" de qui ? Du personnage ? Du narrateur ? -->
-
-<!-- Le "Paris" de quand ? Celui de l'intrigue (ex: 1819) ? Celui de l'écriture (ex: 1835) ? Le nôtre ? -->
-
-<!-- Quelles frontières ? Paris intra-muros ? Faut-il inclure les banlieues de l'époque ? La carte doit-elle représenter la ville comme un simple point ou comme une surface ? -->
-
-<!-- Conclure sur la notion de l'instabilité sémantique du toponyme. -->
 
 Prenons un exemple simple. *La Comédie humaine* s'intéresse beaucoup à Paris. La première étape, celle de l'extraction du mot «Paris» (ou la «capitale») est facile. La deuxième étape est moins aisée. Pourquoi?
 
 La troisième étape, celle de la géolocalisation, peut également poser quelques difficultés. Pourquoi? Conroy discute de cette étape en se référant à la «haussmannisation» de Paris au XIXe siècle.
 
-<!-- Pistes de discussion : -->
-
-<!-- Nécessité de recourir à des cartes historiques. -->
-
-<!-- Le risque d'anachronisme (projeter la géographie actuelle sur le passé). -->
-
-<!-- Le problème des homonymes (ex: Paris, Texas). -->
-
-<!-- Animateur : Souligner que le géoréférencement n'est pas un processus neutre mais une enquête historique. -->
 
 ### Des lieux, mais quels lieux?
 
 Si l'on procède de manière automatique à l'extraction du mot «Paris» dans *La Comédie humaine*, nous obtiendrons une grande quantité d'occurrences. Cependant, dans le texte, le mot a-t-il toujours la même valeur et la même signification? Si je m'intéresse aux déplacements des personnages, le mot «Paris» en tant que tel sera plus ou moins pertinent. Pourquoi?
-
-<!-- Conroy propose une double typologie: -->
-
-<!-- Pour remplacer real/fictionnal -->
-
-<!-- 1. "historical" if they also occur in historical documents -->
-
-<!-- 2. "non-historical" if they don't. -->
-
-<!-- 1. Les lieux occupés ("experienced"): visited and inhabited by the characters -->
-
-<!-- 2. Les lieux référencés ("referenced"): mentioned, or imagined by the narrator or the characters. -->
-
-<!-- Barbara Piatti propose cinq (5) catégories d'espace: -->
-
-<!-- 1. Setting: là où l'action prend place (ville, quartier); -->
-
-<!-- 2. Zone of action -->
 
 Barbara Piatti, qui a dirigé un ambitieux projet d'Atlas du roman européen, s'est beaucoup intéressée à un autre enjeu de la cartographie littéraire. Elle remarque en effet que les lieux littéraires, contrairement à ceux cartographiés scientifiquement, ont rarement des frontières claires. Ce sont souvent davantage des zones aux frontières floues que des lieux aux limites nettes. Elle propose une typologie des lieux en cinq points:
 
