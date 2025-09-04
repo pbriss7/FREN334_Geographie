@@ -64,7 +64,6 @@ Les écrivaines et écrivains utilisent parfois des cartes pour illustrer l'espa
 
 La géographie littéraire peut ainsi prendre plusieurs directions et s'intéresser à de nombreux phénomènes qui n'ont en commun qu'un intérêt entre l'espace et la littérature. Cet intérêt peut porter sur des phénomènes historiques ou sociologiques et leur inscription dans la géographie mondiale ou nationale (*littérature dans l'espace*); il peut également porter sur un aspect géographique intrinsèque à la fiction, construit à l'intérieur de la littérature (*l'espace dans la littérature*). Quant à la cartographie, elle peut être utilisée, ou non, comme outil d'analyse et de découverte dans l'un et l'autre cas, pour faire apparaître, rendre visibles des liens ou des phénomènes liés au sens de l'œuvre. De telles cartes peuvent s'appuyer sur les systèmes d'information géographique, comme celui utilisé par Google Maps, sur des cartes historiques, voire des cartes imaginaires et artistiques.
 
-
 ------------------------------------------------------------------------
 
 ## Concepts et défis de la cartographie : discussion autour du texte de Melanie Conroy
@@ -72,7 +71,6 @@ La géographie littéraire peut ainsi prendre plusieurs directions et s'intéres
 ### La méfiance envers la cartographie littéraire
 
 Dans l'introduction de son ouvrage, Melanie Conroy rappelle que la cartographie a souvent été rejetée par les spécialistes de la littérature. Même ceux qui s'intéressent à la géographie littéraire s'en méfient, car elle est considérée comme un geste «positiviste». Qu'est-ce qu'elle veut dire par là et quelles raisons les spécialistes peuvent-ils avoir de se méfier de la cartographie?
-
 
 ### Le processus cartographique
 
@@ -88,7 +86,6 @@ Dans les faits, cependant, ce processus n'est pas aussi aisé et suppose des cho
 Prenons un exemple simple. *La Comédie humaine* s'intéresse beaucoup à Paris. La première étape, celle de l'extraction du mot «Paris» (ou la «capitale») est facile. La deuxième étape est moins aisée. Pourquoi?
 
 La troisième étape, celle de la géolocalisation, peut également poser quelques difficultés. Pourquoi? Conroy discute de cette étape en se référant à la «haussmannisation» de Paris au XIXe siècle.
-
 
 ### Des lieux, mais quels lieux?
 
@@ -122,5 +119,425 @@ Barbara Piatti, qui a dirigé un ambitieux projet d'Atlas du roman européen, s'
 
 -   Lisa Teichmann, «Mapping German fiction in translation in the German National Library catalogue (1980-2020)», Department of Language, Literature and Culture, Université McGill, 2023. <https://escholarship.mcgill.ca/concern/theses/0p096d03z?locale=en>
 
+------------------------------------------------------------------------
+
+# II. Atelier de cartographie littéraire — Le Paris de *La Comédie humaine*
+
+Pour ce premier atelier, nous allons utiliser les données compilées de diverses sources par Melanie Conroy dans le cadre de sa recherche sur la géographie balzacienne. Chemin faisant, nous allons faire nos premiers pas avec la structure de données la plus utilisée, le tableau de données.
+
+## Consultation des données dans un logiciel
+
+La première manière de consulter les données compilées par Conroy — et la plus simple —, est de passer par l'interface [`Tableau public`](https://public.tableau.com/app/profile/melanie.conroy/viz/BalzacsParis/BalzacsParis "Mapping Balzac - Tableau"). En cliquant sur le lien précédent, vous pourrez consulter trois graphiques exploitant les données.
+
+1.  Une projection des lieux nommés sous forme de points: les couleurs sont associées à des titres d'ouvrages et la taille, au nombre d'occurrences;
+2.  Une projection des lieux nommés dans un diagramme circulaire (tarte), avec les mêmes caractéristiques esthétiques;
+3.  Un diagramme à barres montrant, pour chaque roman, l'importance des quartiers liés à des mentions de lieux.
+
+**Exercice**:
+
+1.  Sous l'onglet 3 (diagramme à barres), commencez par repérer le roman *Illusions perdues*. Quel est le quartier le plus important? Avez-vous une idée de ce qui s'y trouve et s'y passe?
+2.  Sous l'onglet 2 (diagramme circulaire), repérez les lieux clés du Paris des œuvres de Balzac. Quels sont ces lieux et pourquoi sont-ils essentiels à la dynamique de *La Comédie humaine*?
 
 ------------------------------------------------------------------------
+
+## Consultation des données brutes
+
+L'interface graphique de Tableau est attrayante, mais elle est limitée: nous ne pouvons interagir qu'avec les données que l'auteure a souhaité montrer. Il peut être intéressant de retourner aux données brutes pour plusieurs raisons:
+
+1.  Il est toujours utile et important de regarder l'état des données et de la structure. Dans certains cas, on peut rapidement repérer des problèmes de cohérence ou des enjeux d'uniformisation, puis les corriger.
+2.  Les données pourraient être beaucoup plus riches que ne le laisse croire l'interface Tableau: il est possible que la structure brute contienne des colonnes permettant d'étendre l'enquête;
+3.  Même si les données ne correspondent pas parfaitement à ce que nous cherchons, nous pourrons peut-être en extraire quelques éléments que nous pourrons ensuite enrichir.
+
+Les données utilisées pour créer les graphiques de Tableau ont été déposées par Melanie Conroy sur son compte Github. Github est un espace de partage et de collaboration permettant aux programmeurs et développeurs de rendre publics du code et des données.
+
+[`Mapping Balzac -- Github`](https://github.com/mrconroy/mapping-balzac "Mapping Balzac - Github")
+
+Cliquez sur [`MappingBalzac_Paris_Comedie_Humaine.tsv`](https://github.com/mrconroy/mapping-balzac/blob/master/MappingBalzac_Paris_Comedie%20Humaine.tsv "MappingBalzac_Paris_Comedie_Humaine.tsv") pour voir l'état des données.
+
+Que remarquez-vous?
+
+## Consultation des données nettoyées
+
+Un petit coup de balai est essentiel pour rendre ces données exploitables. Entre autres, les caractères latins ont été systématiquement corrigés à l'aide d'un logiciel spécialisé (OpenRefine).
+
+En cliquant sur la flèche ![](images/clipboard-3589718497.png){width="20"} du bloc ci-dessous, Posit exécutera les lignes de commande et vous pourrez visualiser les six premières lignes de la structure de données.
+
+```{r}
+#| label: setup
+#| echo: true
+
+# L'option `include: true` signifie que le code et son résultat 
+# seront affichés dans le document final.
+
+# 1. Chargement des les bibliothèques nécessaires pour l'analyse
+library(data.table) # Pour la manipulation rapide de grands jeux de données
+library(sf)         # Pour la manipulation d'objets géospatiaux
+library(ggplot2)    # Pour les graphiques statiques
+library(leaflet)    # Pour les cartes interactives
+library(viridis)    # Pour des palettes de couleurs accessibles
+library(DT)         # Pour afficher des tableaux interactifs (si besoin)
+
+# 2. Définition des noms de colonnes
+noms_colonnes <- c(
+  "livre", "book", "vol", "series", "series_ch", "start_page", "end_page",
+  "region", "type_of_place", "place_raw", "place_raw_paris_france", "quartier",
+  "lat", "long", "description", "types_involved", "characters_full_name",
+  "characters_csv", "shop_name", "store_type", "historical_figures", "date",
+  "wiki_url", "image_url", "discourse"
+)
+
+# 3. Importation et nettoyage initial des données
+dt <- fread("donnees/MappingBalzacParis_final.csv", quote = "\"", col.names = noms_colonnes)
+
+# Nettoyage des coordonnées dès l'importation.
+# On s'assure que lat et long sont des nombres (numeric).
+# na.omit() supprime les lignes où les coordonnées sont manquantes.
+dt <- dt[, `:=`(lat = as.numeric(lat), long = as.numeric(long))][!is.na(lat) & !is.na(long)]
+
+# Nettoyage de la variable 'discourse'
+dt[is.na(discourse) | !(discourse %in% c("Fact", "Event", "Description")), discourse := "Autre"]
+
+# Ajout d'un identifiant unique pour chaque ligne, utile pour les jointures
+dt[, row_id := .I]
+
+# Affichage des premières lignes pour vérification
+datatable(head(dt, 3))
+```
+
+Cette structure de données, très commune, est une table plate ou «tableau de données» (*data frame* en anglais). Il comporte deux dimensions, avec des lignes et des colonnes. Si vous avez déjà travaillé avec Excel, vous ne serez pas perturbé outre mesure par cette structure.
+
+**Question**: de quoi sont formées, ici, les lignes et les colonnes? Il est très important de comprendre cette structure pour pouvoir l'exploiter adéquatement.
+
+**Question**: d'après vous, est-ce que toutes les colonnes ont été exploitées par Conroy dans l'interface Tableau?
+
+### Partie 1 — Exploration des données, une dimension à la fois
+
+Avant d'aller plus loin, faisons une petite pause terminologique.
+
+Quand on travaille avec un tableau de données, il est utile d’avoir un vocabulaire simple et commun pour en parler. Trois mots-clés suffisent pour commencer : population, individus et variables.
+
+La **population** correspond à l’ensemble sur lequel porte notre observation. Par exemple, tous les livres ou articles de notre corpus.
+
+On appellera **individus** chaque élément de cette population occupant une ligne du tableau, par exemple chaque livre ou article de notre corpus.
+
+Enfin, on appellera **variables** les caractéristiques que nous mesurons ou notons pour chaque individu. Le nom de l'auteur, l'année de publication, la maison d'édition, les sujets dont traite chaque ouvrage du tableau.
+
+Au croisement des lignes et des colonnes, donc des individus et des variables, se trouvent les **valeurs** ou **modalités**.
+
+Une **valeur**, c’est l’information précise enregistrée pour un individu donné sur une variable donnée. • Exemple : si la variable est « âge », et que l’individu est Alice, la valeur peut être « 20 ».
+
+Une **modalité** est un cas particulier : on utilise ce mot surtout pour les variables qualitatives. • Exemple : pour la variable « sexe », les modalités peuvent être « F » ou « M ». Pour la variable « ville de résidence », les modalités sont « Montréal », « Québec », « Trois-Rivières ».
+
+Les **types de donnéées** Dans un tableau bien fait, toutes les valeurs d’une même variable doivent être du même type. C’est ce type qui détermine la nature des informations qu’on peut enregistrer et les opérations possibles.
+
+Les principaux types de données sont : • chaînes de caractères (strings) : par exemple « Paris », « Nantes », « Angoulême » ; • nombres entiers (integers) : 1, 2, 3, 4 ; • nombres décimaux (floats) : 1.1, 1.5, 4.5 ; • booléens (booleans) : TRUE ou FALSE (oui/non, présent/absent).
+
+👉 Dans une colonne donnée, on ne retrouve donc qu’un seul type de données, ce qui garantit la cohérence de la variable et la possibilité d’effectuer des calculs ou des regroupements pertinents.
+
+Fin de la pause terminologique!
+
+Devant un tableau comportant autant d'individus (4408) et de variables (25), on peut se sentir un peu perdu. Aussi, la première chose à faire est une exploration univariée, c'est-à-dire un regroupement des valeurs identiques d'une seule variable, question de voir l'importance de chaque groupe.
+
+Dans le bloc suivant, nous allons créer notre premier regroupement: nous allons d'abord observer les différentes modalités entrées par Melanie Conroy pour la variable `discourse`, puis nous allons calculer la fréquence de chacune de ces catégories.
+
+```{r}
+
+unique(dt$discourse)
+
+```
+
+```{r}
+dt[, .N, discourse][order(-N)]
+```
+
+Nous pourrions proposer le même examen pour chacune des variables catégorielles (c'est-à-dire les variables pour lesquelles les valeurs proposées correspondent à modalités). Essayez par exemple de remplacer `discourse` par `type_of_place` dans la dernière ligne de code, puis exécutez le bloc.
+
+#### Notre premier diagramme à barres
+
+Avec une table de fréquence comme celle que nous venons de composer, nous pouvons fabriquer un diagramme à barres. Chaque modalité de la variable correspondra à une barre et la hauteur de celle-ci sera déterminée par la fréquence (le nombre entier dans la deuxième colonne du tableau).
+
+Le bloc ci-dessous offre une fonction maison permettant de créer un tel diagramme à barres pour une variable donnée. Changez par exemple la variable `discourse` par `type_of_place` dans la fonction, puis exécutez le bloc.
+
+```{r}
+#| label: "exploration_categorielle_avancee"
+#| fig-cap: "Exploration des variables catégorielles avec options"
+#| warning: false
+#| message: false
+
+library(ggplot2)
+library(data.table)
+library(viridis)
+
+plot_distribution <- function(data, variable, titre, max = 15, viridis = TRUE) {
+  # Filtrage des valeurs vides ou manquantes
+  data_filtrée <- data[get(variable) != "" & !is.na(get(variable))]
+  
+  # Comptage des occurrences
+  freq <- data_filtrée[, .N, by = variable][order(-N)][1:max]
+  noms_ordonnes <- freq[[variable]]
+  
+  # Sous-ensemble des données
+  data_top <- data_filtrée[get(variable) %in% noms_ordonnes]
+  
+  # Tracé
+  p <- ggplot(data_top, aes(x = reorder(get(variable), -table(get(variable))[get(variable)]))) +
+    geom_bar(aes(fill = ..count..)) +
+    labs(title = titre, x = variable, y = "Nombre de mentions") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none")
+  
+  # Option de coloration viridis
+  if (viridis) {
+    p <- p + scale_fill_viridis_c(option = "D", direction = -1, end = 0.9)
+  }
+  
+  return(p)
+}
+
+plot_distribution(dt, "discourse", "Répartition des types de lieux")
+
+
+```
+
+À nouveau, changez `discourse` par une autre variable, `type_of_place`, puis exécutez à nouveau le bloc.
+
+### Exploration cartographique
+
+Comme le jeu de données de Melanie Conroy a été géoréférencé et que chaque entrée possède une valeur de latitude et une de longitude, il est possible de projeter chaque individu sur une carte sous la forme d'un petit point. Si vous retournez au [`premier onglet de Tableau -- Mapping Balzac`](https://public.tableau.com/app/profile/melanie.conroy/viz/BalzacsParis/BalzacsParis "Mapping Balzac"), vous verrez de ces points.
+
+**Question**: pourquoi certains de ces points sont-ils plus volumineux?
+
+Pour rendre la carte plus lisible, il est souvent souhaitable d'agréger les points qui occupent la même position géographique. Ainsi, la taille du point sera proportionnelle au nombre de fois que les coordonnées identiques se trouvent dans le jeu de données.
+
+Une autre manière de simplifier et d'agréger les données géographiques est de les rassembler à l'intérieur d'une zone donnée de la carte, et de colorer la carte en fonction de la densité des points.
+
+Dans le bloc de code ci-dessous, j'utilise la carte des arrondissements contemporains de Paris ([`données disponibles ici`](https://opendata.paris.fr/explore/dataset/arrondissements/export/?disjunctive.l_ar&disjunctive.c_arinsee&disjunctive.c_ar&location=13,48.85156,2.32327 "Arrondissements de Paris")). Chaque arrondissement est formé de coordonnées qui forment un polygone. On détermine combien de points uniques du jeu de données de Conroy «tombent» dans chaque polygone, puis on colore chaque polygone en fonction d'une échelle graduée. Ce type de carte est appelé choroplèthe.
+
+```{r}
+#| label: "preparation_carte_choroplethe"
+#| message: false
+#| warning: false
+
+# --- Étape 1: Préparation des objets géospatiaux ---
+
+# Chargement du fichier GeoJSON des arrondissements de Paris.
+# st_transform(4326) s'assure que le système de coordonnées est le même que celui de nos points (WGS84).
+arrondissements <- st_read("donnees/arrondissements.geojson", quiet = TRUE) |>
+  st_transform(4326)
+
+# Conversion de notre data.table en objet 'sf' (simple features).
+# On spécifie que les colonnes 'long' et 'lat' sont les coordonnées.
+points_sf <- st_as_sf(dt, coords = c("long", "lat"), crs = 4326, remove = FALSE)
+
+# --- Étape 2: Jointure spatiale ---
+
+# On effectue une jointure spatiale pour savoir dans quel arrondissement se trouve chaque point.
+# `st_join` ajoute les colonnes des arrondissements (ex: c_ar, l_ar) aux points situés à l'intérieur.
+points_avec_arrond <- st_join(points_sf, arrondissements, join = st_within)
+
+# --- Étape 3: Comptage des mentions par arrondissement ---
+
+# On repasse en data.table pour une agrégation rapide.
+dt_final <- as.data.table(points_avec_arrond)
+
+# On compte le nombre de mentions (N) par arrondissement (`l_ar`).
+# On filtre les points qui n'ont pas trouvé d'arrondissement (NA).
+comptes_arrond <- dt_final[!is.na(l_ar), .N, by = .(l_ar, c_ar)]
+setnames(comptes_arrond, "N", "mentions") # On renomme la colonne pour plus de clarté
+
+# --- Étape 4: Jointure des comptes au géo-référentiel ---
+
+# On joint nos comptes à l'objet spatial 'arrondissements'.
+# `merge` est utilisé ici pour la jointure.
+arrondissements_avec_comptes <- merge(arrondissements, comptes_arrond, by = c("l_ar", "c_ar"), all.x = TRUE)
+
+# On remplace les NA (arrondissements sans mention) par 0.
+arrondissements_avec_comptes$mentions[is.na(arrondissements_avec_comptes$mentions)] <- 0
+
+
+# --- Étape 5: Création de la carte interactive Leaflet ---
+
+pal <- colorNumeric(palette = "viridis", domain = arrondissements_avec_comptes$mentions, reverse = TRUE)
+
+carte_choroplethe <- leaflet(arrondissements_avec_comptes) %>%
+  addTiles() %>%
+  addPolygons(
+    fillColor = ~pal(mentions),
+    weight = 2,
+    opacity = 1,
+    color = "white",
+    dashArray = "3",
+    fillOpacity = 0.7,
+    popup = ~paste(
+      "<strong>Arrondissement :</strong>", l_ar, "<br>",
+      "<strong>Nombre de mentions :</strong>", mentions, "<br>",
+      "<strong>Pourcentage du total :</strong>",
+      round(mentions / sum(mentions, na.rm = TRUE) * 100, 1), "%"
+    ),
+    highlightOptions = highlightOptions(
+      weight = 3, color = "#666", dashArray = "",
+      fillOpacity = 0.9, bringToFront = TRUE
+    )
+  ) %>%
+  addLegend(
+    pal = pal, values = ~mentions, opacity = 0.7,
+    title = "Nombre de<br>mentions", position = "bottomright"
+  ) %>%
+  setView(lng = 2.34, lat = 48.86, zoom = 11)
+
+carte_choroplethe
+```
+
+Le Paris de Balzac est fortement concentré autour des arrondissements centraux de la rive droite.
+
+# Exploration avancée: l'analyse bivariée
+
+À quel type de question l'analyse univariée permet-elle de répondre?
+
+-   «Quels sont les lieux les plus ou les moins mentionnés dans les romans de Balzac?»
+-   «Quel lieu est le plus ou le moins fréquemment mentionné?»
+
+Ce type d'exploration, une donnée à la fois, à l'aide de diagrammes à barres ou de cartes géographiques, permet certes de repérer des tendances fortes ou faibles, mais il ne permet pas encore de comprendre le lien <i>entre</i> les variables.
+
+Pour cela, il faut croiser les valeurs de deux colonnes ou plus, et compter le nombre de fois que des paires de valeurs sont trouvées.
+
+Supposons par exemple que j'aie créé un jeu de données dans lequel se trouve dix romans de Balzac (1 par ligne) et que j'aie noté, pour chacun, le lieu du début du roman (lieu_debut) et le lieu où le roman se termine (lieu_fin).
+
+```{r}
+# Création du jeu de données exemple
+library(dplyr)
+library(ggplot2)
+
+balzac_romans <- data.frame(
+  roman = c("Le Père Goriot", "Eugénie Grandet", "La Cousine Bette", 
+            "Le Cousin Pons", "César Birotteau", "La Peau de chagrin",
+            "Illusions perdues", "Splendeurs et misères", "La Femme de trente ans",
+            "Le Lys dans la vallée"),
+  lieu_debut = c("Paris", "Saumur", "Paris", "Paris", "Paris", "Paris",
+                 "Angoulême", "Paris", "Paris", "Tours"),
+  lieu_fin = c("Paris", "Saumur", "Paris", "Paris", "Paris", "Alpes",
+               "Paris", "Paris", "Normandie", "Tours"),
+  annee_publication = c(1835, 1833, 1846, 1847, 1837, 1831, 1843, 1847, 1842, 1836)
+)
+
+# Affichage du tableau
+balzac_romans
+```
+
+Dans le contexte d'une analyse bivariée, on posera des questions comme les suivantes:
+
+«Y a-t-il une **relation** entre le lieu de début et le lieu de fin des romans ?» «Les romans qui commencent à Paris finissent-ils généralement à Paris ?» «Observe-t-on des patterns de mobilité géographique selon l'époque de publication ?»
+
+Pour répondre à ce type de question, il faut construire un petit tableau où nous noterons le nombre d'occurrences de chaque paire. C'est ce qu'on appelle un tableau de contingence
+
+```{r}
+# Tableau de contingence : lieu_debut × lieu_fin
+tableau_cooc <- table(balzac_romans$lieu_debut, balzac_romans$lieu_fin)
+print(tableau_cooc)
+
+# Ou avec dplyr pour plus de flexibilité
+contingence <- balzac_romans %>%
+  count(lieu_debut, lieu_fin, name = "frequence") %>%
+  arrange(desc(frequence))
+
+print(contingence)
+```
+
+Les données d'un tableau de contingence peuvent être projetés dans une carte de chaleur:
+
+```{r}
+
+# Heatmap pour visualiser les croisements
+ggplot(contingence, aes(x = lieu_debut, y = lieu_fin, fill = frequence)) +
+  geom_tile() +
+  geom_text(aes(label = frequence), color = "white", size = 4) +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  labs(title = "Carte de chaleur de la mobilité géographique",
+       x = "Lieu de début", 
+       y = "Lieu de fin",
+       fill = "Fréquence") +
+  theme_minimal()
+```
+
+Nous allons maintenant faire cela avec les données du tableau de Melanie Conroy.
+
+Nous allons, en guise d'exemple, croiser les modalités de la variable **série littéraire** ("Scènes de la vie parisienne", "Scènes de la vie de province", etc.) et celles de la variable **région géographique** pour vérifier que Balzac situe bien en province les «Scènes de la vie de province»!
+
+Les noms de variables à utiliser ici sont `series_ch` pour la série littéraire et `region` pour la région géographique.
+
+```{r}
+#| label: "preparation_heatmap"
+#| warning: false
+#| message: false
+
+library(data.table)
+
+# Nettoyage des valeurs vides
+dt_filtré <- dt[series_ch != "" & !is.na(series_ch) & region != "" & !is.na(region)]
+
+# Création de la matrice de cooccurrences
+matrice_cooc <- dcast(
+  dt_filtré[, .N, by = .(series_ch, region)],
+  series_ch ~ region,
+  value.var = "N",
+  fill = 0
+)
+
+# Aperçu des données agrégées
+head(matrice_cooc)
+```
+
+Le bloc suivant, quant à lui, crée la carte de chaleur et rend visible les croisements de données.
+
+```{r}
+#| label: "plot_heatmap_simple"
+#| fig-cap: "Carte de chaleur simplifiée"
+#| warning: false
+#| message: false
+
+library(ggplot2)
+library(data.table)
+library(reshape2)
+
+# Fonction simplifiée pour tracer une carte de chaleur à partir d'une matrice
+plot_heatmap <- function(matrice, titre = "Carte de chaleur") {
+  
+  # Conversion en format long
+  data_long <- melt(matrice, id.vars = colnames(matrice)[1], variable.name = "colonne", value.name = "N")
+  
+  ggplot(data_long, aes_string(x = "colonne", y = colnames(matrice)[1], fill = "N")) +
+    geom_tile(color = "white") +
+    scale_fill_viridis_c(option = "C", direction = -1) +
+    labs(title = titre, x = "Variable 2", y = "Variable 1", fill = "Fréquence") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+}
+
+plot_heatmap(matrice_cooc, "Carte de chaleur : séries × régions")
+
+```
+
+On n'est pas surpris de voir que les *Scènes de la vie parisienne* sont fortement corrélées avec la Cité et les Boulevards, où l'on trouve les théâtres et les divertissements, mais il est plus surprenant de voir que les *Scènes de la vie de province* contiennent également un nombre élevé de références aux mêmes Boulevards. Avez-vous une hypothèse pour expliquer ce phénomène?
+
+Nous pouvons isoler, dans table initiale, les romans des *Scènes de la vie de province* et voir lesquels font le plus souvent référence aux Boulevards.
+
+```{r}
+library(ggplot2)
+
+dt_pie <- dt[series_ch == "Scènes de la vie de province" & region == "The Boulevards",
+             .N, by = "livre"][order(-N)]
+dt_pie
+dt_pie |>
+  ggplot(aes(x = "", y = N, fill = reorder(livre, -N))) +
+  geom_bar(stat = "identity", width = 1, color = "white") +
+  geom_text(aes(label = N),   # <- ajouter les étiquettes
+            position = position_stack(vjust = 0.5),  # centre
+            color = "white",                         # couleur contrastée
+            size = 4) +                               # taille ajustable
+  coord_polar("y", start = 0) +
+  theme_void()
+
+
+```
+
+Ainsi, *Illusions perdues* est le titre des *Scènes de la vie de province* qui se réfère le plus à Paris et, comme on sait, toute la partie centrale du roman, «Un grand homme de province à Paris», s'y déroule.
