@@ -28,25 +28,21 @@ execute:
 #| message: false
 #| warning: false
 
-# Fonction d'activation de packages en lot
-activer_packages <- function(pkgs) {
-  for (p in pkgs) {
-    if (!requireNamespace(p, quietly = TRUE)) {
-      install.packages(p, repos = "https://cloud.r-project.org")
-    }
-    suppressPackageStartupMessages(
-      library(p, character.only = TRUE)
-    )
-  }
-}
+if(!"data.table" %in% rownames(installed.packages())) {install.packages("data.table")}
+if(!"sf" %in% rownames(installed.packages())) {install.packages("sf")}
+if(!"tidyverse" %in% rownames(installed.packages())) {install.packages("tidyverse")}
+if(!"leaflet" %in% rownames(installed.packages())) {install.packages("leaflet")}
+if(!"leaflet.providers" %in% rownames(installed.packages())) {install.packages("leaflet.providers")}
+if(!"viridis" %in% rownames(installed.packages())) {install.packages("viridis")}
+if(!"DT" %in% rownames(installed.packages())) {install.packages("DT")}
 
-# Liste de packages à installer (au besoin) et à activer
-packages <- c(
-  "data.table", "sf", "ggplot2", "leaflet",
-  "viridis", "DT", "dplyr", "reshape2", "rmarkdown"
-)
+library(data.table)
+library(sf)
+library(leaflet)
+library(leaflet.providers)
+library(viridis)
+library(DT)
 
-activer_packages(packages)
 ```
 
 # I. Qu'est-ce que la géographie littéraire?
