@@ -25,23 +25,28 @@ execute:
 ```{r}
 
 #| echo: false
-  
+#| message: false
+#| warning: false
+
 # Fonction d'activation de packages en lot
 activer_packages <- function(pkgs) {
   for (p in pkgs) {
     if (!requireNamespace(p, quietly = TRUE)) {
-      install.packages(p)
+      install.packages(p, repos = "https://cloud.r-project.org")
     }
-    library(p, character.only = TRUE)
+    suppressPackageStartupMessages(
+      library(p, character.only = TRUE)
+    )
   }
 }
 
 # Liste de packages à installer (au besoin) et à activer
-packages <- c("data.table", "sf", "ggplot2", "leaflet", "viridis", "DT", "dplyr", "reshape2", "rmarkdown")
+packages <- c(
+  "data.table", "sf", "ggplot2", "leaflet",
+  "viridis", "DT", "dplyr", "reshape2", "rmarkdown"
+)
 
 activer_packages(packages)
-
-
 ```
 
 # I. Qu'est-ce que la géographie littéraire?
