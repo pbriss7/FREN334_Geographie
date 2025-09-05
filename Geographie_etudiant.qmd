@@ -22,6 +22,28 @@ execute:
   message: false
 ---
 
+```{r}
+
+#| echo: false
+  
+# Fonction d'activation de packages en lot
+activer_packages <- function(pkgs) {
+  for (p in pkgs) {
+    if (!requireNamespace(p, quietly = TRUE)) {
+      install.packages(p)
+    }
+    library(p, character.only = TRUE)
+  }
+}
+
+# Liste de packages à installer (au besoin) et à activer
+packages <- c("data.table", "sf", "ggplot2", "leaflet", "viridis", "DT", "dplyr", "reshape2", "rmarkdown")
+
+activer_packages(packages)
+
+
+```
+
 # I. Qu'est-ce que la géographie littéraire?
 
 À quel point avez-vous prêté attention à la géographie imaginaire du dernier roman que vous avez lu? Vous a-t-il semblé que ces lieux jouaient un rôle important, au point que l'histoire n'aurait pu prendre place nulle part ailleurs? Ou, au contraire, les lieux n'étaient-ils qu'un simple décor sans réelle importance dans la fiction? Ces lieux étaient-ils imaginaires et sans lien avec la réalité? Étaient-ils référentiels, portant des noms connus de pays, de villes ou de régions historiques? Peut-être étaient-ce des lieux qui ont existé autrefois, des villes disparues ou portant aujourd'hui d'autres noms? Peut-être encore ces lieux portaient-ils des noms étranges, inventés, mais leur description rappelaient des villes ou des régions familières? Y avait-il un lien entre le type d'intrigue ou la forme du roman (par exemple: un roman policier), et le type de lieux habités et parcourus par les personnages? Vous est-il déjà arrivé de parcourir un quartier ou une région, et de voir ceux-ci à travers une fiction que vous aviez déjà lue? Peut-être vous êtes-vous dit: «c'est ici que tel personnage a vécu telle émotion, qu'il a fait telle chose, que tel événement s'est produit.»
@@ -165,21 +187,6 @@ En cliquant sur la flèche ![](images/clipboard-3589718497.png){width="20"} du b
 ```{r}
 #| label: setup
 #| echo: true
-
-# Fonction d'activation de packages en lot
-activer_packages <- function(pkgs) {
-  for (p in pkgs) {
-    if (!requireNamespace(p, quietly = TRUE)) {
-      install.packages(p)
-    }
-    library(p, character.only = TRUE)
-  }
-}
-
-# Liste de packages à installer (au besoin) et à activer
-packages <- c("data.table", "sf", "ggplot2", "leaflet", "viridis", "DT", "dplyr", "reshape2", "rmarkdown")
-
-activer_packages(packages)
 
 # 1. Définition des noms de colonnes
 noms_colonnes <- c(
