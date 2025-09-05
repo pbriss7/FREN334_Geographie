@@ -254,7 +254,7 @@ Nous pourrions proposer le même examen pour chacune des variables catégorielle
 
 #### Notre premier diagramme à barres
 
-Avec une table de fréquence comme celle que nous venons de composer, nous pouvons fabriquer un diagramme à barres. Chaque modalité de la variable correspondra à une barre et la hauteur de celle-ci sera déterminée par la fréquence (le nombre entier dans la deuxième colonne du tableau).
+Avec une table de fréquence comme celle que nous venons de composer, nous pouvons fabriquer un diagramme à barres. Chaque valeur de la variable correspondra à une barre et la hauteur de celle-ci sera déterminée par la fréquence (le nombre entier dans la deuxième colonne du tableau).
 
 Le bloc ci-dessous offre une fonction maison permettant de créer un tel diagramme à barres pour une variable donnée. Changez par exemple la variable `discourse` par `type_of_place` dans la fonction, puis exécutez le bloc.
 
@@ -307,11 +307,11 @@ Comme le jeu de données de Melanie Conroy a été géoréférencé et que chaqu
 
 **Question**: pourquoi certains de ces points sont-ils plus volumineux?
 
-Pour rendre la carte plus lisible, il est souvent souhaitable d'agréger les points qui occupent la même position géographique. Ainsi, la taille du point sera proportionnelle au nombre de fois que les coordonnées identiques se trouvent dans le jeu de données.
+Pour rendre la carte plus lisible, il est souvent souhaitable d'**agréger** les points qui occupent la même position géographique. Ainsi, la taille du point sera proportionnelle au nombre de fois que les coordonnées identiques se trouvent dans le jeu de données.
 
 Une autre manière de simplifier et d'agréger les données géographiques est de les rassembler à l'intérieur d'une zone donnée de la carte, et de colorer la carte en fonction de la densité des points.
 
-Dans le bloc de code ci-dessous, j'utilise la carte des arrondissements contemporains de Paris ([`données disponibles ici`](https://opendata.paris.fr/explore/dataset/arrondissements/export/?disjunctive.l_ar&disjunctive.c_arinsee&disjunctive.c_ar&location=13,48.85156,2.32327 "Arrondissements de Paris")). Chaque arrondissement est formé de coordonnées qui forment un polygone. On détermine combien de points uniques du jeu de données de Conroy «tombent» dans chaque polygone, puis on colore chaque polygone en fonction d'une échelle graduée. Ce type de carte est appelé choroplèthe.
+Dans le bloc de code ci-dessous, j'utilise la carte des arrondissements contemporains de Paris ([`données disponibles ici`](https://opendata.paris.fr/explore/dataset/arrondissements/export/?disjunctive.l_ar&disjunctive.c_arinsee&disjunctive.c_ar&location=13,48.85156,2.32327 "Arrondissements de Paris")). Chaque arrondissement est formé de coordonnées qui forment un polygone. On détermine combien de points uniques du jeu de données de Conroy «tombent» dans chaque polygone, puis on colore chaque polygone en fonction d'une échelle graduée. Ce type de carte est appelé **choroplèthe**.
 
 ```{r}
 #| label: "preparation_carte_choroplethe"
@@ -394,14 +394,13 @@ Le Paris de Balzac est fortement concentré autour des arrondissements centraux 
 
 À quel type de question l'analyse univariée permet-elle de répondre?
 
--   «Quels sont les lieux les plus ou les moins mentionnés dans les romans de Balzac?»
--   «Quel lieu est le plus ou le moins fréquemment mentionné?»
+-   «Quels sont les lieux souvent mentionnés dans les romans de Balzac?»
 
-Ce type d'exploration, une donnée à la fois, à l'aide de diagrammes à barres ou de cartes géographiques, permet certes de repérer des tendances fortes ou faibles, mais il ne permet pas encore de comprendre le lien <i>entre</i> les variables.
+Ce type d'exploration, une donnée à la fois, à l'aide de diagrammes à barres ou de cartes géographiques, permet certes de repérer des tendances fortes ou faibles, mais il ne permet pas encore de comprendre le lien *entre* les variables.
 
 Pour cela, il faut croiser les valeurs de deux colonnes ou plus, et compter le nombre de fois que des paires de valeurs sont trouvées.
 
-Supposons par exemple que j'aie créé un jeu de données dans lequel se trouve dix romans de Balzac (1 par ligne) et que j'aie noté, pour chacun, le lieu du début du roman (lieu_debut) et le lieu où le roman se termine (lieu_fin).
+Supposons par exemple que j'aie créé un jeu de données dans lequel se trouve dix romans de Balzac (un par ligne) et que j'aie noté, pour chacun, le lieu du début du roman (lieu_debut) et le lieu où le roman se termine (lieu_fin).
 
 ```{r}
 # Création du jeu de données exemple
@@ -459,9 +458,9 @@ ggplot(contingence, aes(x = lieu_debut, y = lieu_fin, fill = frequence)) +
   theme_minimal()
 ```
 
-Nous allons maintenant faire cela avec les données du tableau de Melanie Conroy.
+Nous allons maintenant faire cela avec de «vraies» données, cette fois, celles du tableau de Melanie Conroy.
 
-Nous allons, en guise d'exemple, croiser les modalités de la variable **série littéraire** ("Scènes de la vie parisienne", "Scènes de la vie de province", etc.) et celles de la variable **région géographique** pour vérifier que Balzac situe bien en province les «Scènes de la vie de province»!
+Nous allons, en guise d'exemple, croiser les modalités de la variable **série littéraire** («Scènes de la vie parisienne», «Scènes de la vie de province», etc.) et celles de la variable **région géographique** pour vérifier que Balzac situe bien en province les «Scènes de la vie de province»!
 
 Les noms de variables à utiliser ici sont `series_ch` pour la série littéraire et `region` pour la région géographique.
 
@@ -517,7 +516,7 @@ plot_heatmap(matrice_cooc, "Carte de chaleur : séries × régions")
 
 ```
 
-On n'est pas surpris de voir que les *Scènes de la vie parisienne* sont fortement corrélées avec la Cité et les Boulevards, où l'on trouve les théâtres et les divertissements, mais il est plus surprenant de voir que les *Scènes de la vie de province* contiennent également un nombre élevé de références aux mêmes Boulevards. Avez-vous une hypothèse pour expliquer ce phénomène?
+On n'est pas surpris de voir que les *Scènes de la vie parisienne* sont **fortement corrélées** avec la Cité et les Boulevards, où l'on trouve les théâtres et les divertissements, mais il est plus surprenant de voir que les *Scènes de la vie de province* contiennent également un nombre élevé de références aux mêmes Boulevards. Avez-vous une hypothèse pour expliquer ce phénomène?
 
 Nous pouvons isoler, dans table initiale, les romans des *Scènes de la vie de province* et voir lesquels font le plus souvent référence aux Boulevards.
 
