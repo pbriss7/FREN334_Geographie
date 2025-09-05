@@ -160,7 +160,7 @@ Que remarquez-vous?
 
 Un petit coup de balai est essentiel pour rendre ces données exploitables. Entre autres, les caractères latins ont été systématiquement corrigés à l'aide d'un logiciel spécialisé (OpenRefine).
 
-En cliquant sur la flèche ![](images/clipboard-3589718497.png){width="20"} du bloc ci-dessous, Posit exécutera les lignes de commande et vous pourrez visualiser les six premières lignes de la structure de données.
+En cliquant sur la flèche ![](images/clipboard-3589718497.png){width="20"} du bloc ci-dessous, Posit exécutera les lignes de commande et vous pourrez visualiser les trois premières lignes de la structure de données.
 
 ```{r}
 #| label: setup
@@ -214,7 +214,7 @@ Cette structure de données, très commune, est une table plate ou «tableau de 
 
 Avant d'aller plus loin, faisons une petite pause terminologique.
 
-Quand on travaille avec un tableau de données, il est utile d’avoir un vocabulaire simple et commun pour en parler. Trois mots-clés suffisent pour commencer : population, individus et variables.
+Quand on travaille avec un tableau de données, il est utile d’avoir un vocabulaire simple et commun pour en parler. Quelques mots-clés suffisent pour commencer : **population**, **individus**, **variables**, **valeur** et **type de donnée**.
 
 La **population** correspond à l’ensemble sur lequel porte notre observation. Par exemple, tous les livres ou articles de notre corpus.
 
@@ -222,13 +222,13 @@ On appellera **individus** chaque élément de cette population occupant une lig
 
 Enfin, on appellera **variables** les caractéristiques que nous mesurons ou notons pour chaque individu. Le nom de l'auteur, l'année de publication, la maison d'édition, les sujets dont traite chaque ouvrage du tableau.
 
-Au croisement des lignes et des colonnes, donc des individus et des variables, se trouvent les **valeurs** ou **modalités**.
+Au croisement des lignes et des colonnes, donc des individus et des variables, se trouvent les **valeurs**.
 
-Une **valeur**, c’est l’information précise enregistrée pour un individu donné sur une variable donnée. • Exemple : si la variable est « âge », et que l’individu est Alice, la valeur peut être « 20 ».
+Une **valeur**, c’est l’information précise enregistrée pour un individu donné sur une variable donnée.
 
-Une **modalité** est un cas particulier : on utilise ce mot surtout pour les variables qualitatives. • Exemple : pour la variable « sexe », les modalités peuvent être « F » ou « M ». Pour la variable « ville de résidence », les modalités sont « Montréal », « Québec », « Trois-Rivières ».
+• Exemple : si la variable est « âge », et que l’individu est Alice, la valeur peut être « 20 ».
 
-Les **types de donnéées** Dans un tableau bien fait, toutes les valeurs d’une même variable doivent être du même type. C’est ce type qui détermine la nature des informations qu’on peut enregistrer et les opérations possibles.
+Les **types de données.** Dans un tableau bien fait, toutes les valeurs d’une même variable doivent être du même type. C’est ce type qui détermine la nature des informations qu’on peut enregistrer et les opérations possibles.
 
 Les principaux types de données sont : • chaînes de caractères (strings) : par exemple « Paris », « Nantes », « Angoulême » ; • nombres entiers (integers) : 1, 2, 3, 4 ; • nombres décimaux (floats) : 1.1, 1.5, 4.5 ; • booléens (booleans) : TRUE ou FALSE (oui/non, présent/absent).
 
@@ -238,7 +238,7 @@ Fin de la pause terminologique!
 
 Devant un tableau comportant autant d'individus (4408) et de variables (25), on peut se sentir un peu perdu. Aussi, la première chose à faire est une exploration univariée, c'est-à-dire un regroupement des valeurs identiques d'une seule variable, question de voir l'importance de chaque groupe.
 
-Dans le bloc suivant, nous allons créer notre premier regroupement: nous allons d'abord observer les différentes modalités entrées par Melanie Conroy pour la variable `discourse`, puis nous allons calculer la fréquence de chacune de ces catégories.
+Dans le bloc suivant, nous allons créer notre premier regroupement: nous allons d'abord observer les différentes valeurs entrées par Melanie Conroy pour la variable `discourse`, puis nous allons calculer la fréquence de chacune de ces catégories.
 
 ```{r}
 
@@ -250,7 +250,7 @@ unique(dt$discourse)
 dt[, .N, discourse][order(-N)]
 ```
 
-Nous pourrions proposer le même examen pour chacune des variables catégorielles (c'est-à-dire les variables pour lesquelles les valeurs proposées correspondent à modalités). Essayez par exemple de remplacer `discourse` par `type_of_place` dans la dernière ligne de code, puis exécutez le bloc.
+Nous pourrions proposer le même examen pour chacune des variables catégorielles (c'est-à-dire les variables pour lesquelles les valeurs sont des catégories, généralement en nombre limité). Essayez par exemple de remplacer `discourse` par `type_of_place` dans la dernière ligne de code, puis exécutez le bloc.
 
 #### Notre premier diagramme à barres
 
