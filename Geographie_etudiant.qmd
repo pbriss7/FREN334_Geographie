@@ -177,7 +177,7 @@ activer_packages <- function(pkgs) {
 }
 
 # Liste de packages à installer (au besoin) et à activer
-packages <- c("data.table", "sf", "ggplot2", "leaflet", "viridis", "DT", "dplyr", "reshape2")
+packages <- c("data.table", "sf", "ggplot2", "leaflet", "viridis", "DT", "dplyr", "reshape2", "rmarkdown")
 
 activer_packages(packages)
 
