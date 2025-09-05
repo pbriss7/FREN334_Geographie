@@ -166,18 +166,22 @@ En cliquant sur la flèche ![](images/clipboard-3589718497.png){width="20"} du b
 #| label: setup
 #| echo: true
 
-# L'option `include: true` signifie que le code et son résultat 
-# seront affichés dans le document final.
+# Fonction d'activation de packages en lot
+activer_packages <- function(pkgs) {
+  for (p in pkgs) {
+    if (!requireNamespace(p, quietly = TRUE)) {
+      install.packages(p)
+    }
+    library(p, character.only = TRUE)
+  }
+}
 
-# 1. Chargement des les bibliothèques nécessaires pour l'analyse
-library(data.table) # Pour la manipulation rapide de grands jeux de données
-library(sf)         # Pour la manipulation d'objets géospatiaux
-library(ggplot2)    # Pour les graphiques statiques
-library(leaflet)    # Pour les cartes interactives
-library(viridis)    # Pour des palettes de couleurs accessibles
-library(DT)         # Pour afficher des tableaux interactifs (si besoin)
+# Liste de packages à installer (au besoin) et à activer
+packages <- c("data.table", "sf", "ggplot2", "leaflet", "viridis", "DT", "dplyr", "reshape2")
 
-# 2. Définition des noms de colonnes
+activer_packages(packages)
+
+# 1. Définition des noms de colonnes
 noms_colonnes <- c(
   "livre", "book", "vol", "series", "series_ch", "start_page", "end_page",
   "region", "type_of_place", "place_raw", "place_raw_paris_france", "quartier",
@@ -186,7 +190,7 @@ noms_colonnes <- c(
   "wiki_url", "image_url", "discourse"
 )
 
-# 3. Importation et nettoyage initial des données
+# 2. Importation et nettoyage initial des données
 dt <- fread("donnees/MappingBalzacParis_final.csv", quote = "\"", col.names = noms_colonnes)
 
 # Nettoyage des coordonnées dès l'importation.
@@ -264,9 +268,6 @@ Le bloc ci-dessous offre une fonction maison permettant de créer un tel diagram
 #| warning: false
 #| message: false
 
-library(ggplot2)
-library(data.table)
-library(viridis)
 
 plot_distribution <- function(data, variable, titre, max = 15, viridis = TRUE) {
   # Filtrage des valeurs vides ou manquantes
@@ -403,9 +404,8 @@ Pour cela, il faut croiser les valeurs de deux colonnes ou plus, et compter le n
 Supposons par exemple que j'aie créé un jeu de données dans lequel se trouve dix romans de Balzac (un par ligne) et que j'aie noté, pour chacun, le lieu du début du roman (lieu_debut) et le lieu où le roman se termine (lieu_fin).
 
 ```{r}
+
 # Création du jeu de données exemple
-library(dplyr)
-library(ggplot2)
 
 balzac_romans <- data.frame(
   roman = c("Le Père Goriot", "Eugénie Grandet", "La Cousine Bette", 
@@ -469,7 +469,6 @@ Les noms de variables à utiliser ici sont `series_ch` pour la série littérair
 #| warning: false
 #| message: false
 
-library(data.table)
 
 # Nettoyage des valeurs vides
 dt_filtré <- dt[series_ch != "" & !is.na(series_ch) & region != "" & !is.na(region)]
@@ -494,10 +493,6 @@ Le bloc suivant, quant à lui, crée la carte de chaleur et rend visible les cro
 #| warning: false
 #| message: false
 
-library(ggplot2)
-library(data.table)
-library(reshape2)
-
 # Fonction simplifiée pour tracer une carte de chaleur à partir d'une matrice
 plot_heatmap <- function(matrice, titre = "Carte de chaleur") {
   
@@ -521,7 +516,6 @@ On n'est pas surpris de voir que les *Scènes de la vie parisienne* sont **forte
 Nous pouvons isoler, dans table initiale, les romans des *Scènes de la vie de province* et voir lesquels font le plus souvent référence aux Boulevards.
 
 ```{r}
-library(ggplot2)
 
 dt_pie <- dt[series_ch == "Scènes de la vie de province" & region == "The Boulevards",
              .N, by = "livre"][order(-N)]
