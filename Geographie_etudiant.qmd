@@ -37,6 +37,7 @@ if(!"viridis" %in% rownames(installed.packages())) {install.packages("viridis")}
 if(!"DT" %in% rownames(installed.packages())) {install.packages("DT")}
 
 library(data.table)
+library(tidyverse)
 library(sf)
 library(leaflet)
 library(leaflet.providers)
