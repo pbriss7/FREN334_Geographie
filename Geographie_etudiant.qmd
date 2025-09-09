@@ -23,7 +23,7 @@ execute:
 ---
 
 ```{r}
-
+#| label: setup
 #| echo: false
 #| message: false
 #| warning: false
@@ -187,7 +187,6 @@ Un petit coup de balai est essentiel pour rendre ces données exploitables. Entr
 En cliquant sur la flèche ![](images/clipboard-3589718497.png){width="20"} du bloc ci-dessous, Posit exécutera les lignes de commande et vous pourrez visualiser les trois premières lignes de la structure de données.
 
 ```{r}
-#| label: setup
 #| echo: true
 
 # 1. Définition des noms de colonnes
